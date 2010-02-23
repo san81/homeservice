@@ -1,4 +1,5 @@
 
+drop database homeservice;
 create database homeservice;
 use homeservice;
 
@@ -11,14 +12,14 @@ item_description text )ENGINE=InnoDB AUTO_INCREMENT=81;
 Create table uss_zones(
 zone_id integer(6) auto_increment primary key,
 zone_code varchar(10) unique,
-zone_name varchar(255),
+zone_name varchar(255) not null,
 description text
 )ENGINE=InnoDB;
 
 Create table uss_areas(
 area_id integer(6) auto_increment primary key,
 area_code varchar(5) unique,
-area_name varchar(255),
+area_name varchar(255) not null,
 zone_id integer(6),
 description text,
 FOREIGN KEY(`zone_id`) REFERENCES uss_zones(`zone_id`) ON UPDATE CASCADE
@@ -35,7 +36,9 @@ mobile varchar(10) not null,
 zone_id integer(6),
 area_id integer(6),
 reg_expiry datetime,
-address text
+address text,
+FOREIGN KEY(`zone_id`) REFERENCES uss_zones(`zone_id`) ON UPDATE CASCADE,
+FOREIGN KEY(`area_id`) REFERENCES uss_areas(`area_id`) ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
 create table uss_cust_reg_items(
@@ -60,7 +63,9 @@ role varchar(30),
 working_under integer(6),
 skill_set text,
 address text,
-FOREIGN KEY(`working_under`) REFERENCES uss_employee(`emp_id`) ON UPDATE CASCADE
+FOREIGN KEY(`working_under`) REFERENCES uss_employee(`emp_id`) ON UPDATE CASCADE,
+FOREIGN KEY(`zone_id`) REFERENCES uss_zones(`zone_id`) ON UPDATE CASCADE,
+FOREIGN KEY(`area_id`) REFERENCES uss_areas(`area_id`) ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
 
@@ -79,3 +84,18 @@ FOREIGN KEY(`customer_id`) REFERENCES uss_customer(`customer_id`) ON UPDATE CASC
 FOREIGN KEY(`assigned_emp_id`) REFERENCES uss_employee(`emp_id`) ON UPDATE CASCADE,
 FOREIGN KEY(`item_id`) REFERENCES uss_items(`item_id`) ON UPDATE CASCADE
 )ENGINE=InnoDB;
+
+-- default data
+
+insert into uss_items (item_name,item_price,item_description) values ('fan',100,'Fan repair');
+insert into uss_items (item_name,item_price,item_description) values ('Cooler',300,'Fan repair');
+insert into uss_items (item_name,item_price,item_description) values ('Water pump',500,'Fan repair');
+
+
+insert into uss_zones (zone_code,zone_name,description) values ('HydZone','Hyderabad zone','This is Hyderabad zone');
+insert into uss_zones (zone_code,zone_name,description) values ('SecZone','Secunderabad zone','This is secunderabad zone');
+
+insert into uss_areas (area_code,area_name,zone_id,description) values ('Thmg','Thirumalagiri',2,'');
+insert into uss_areas (area_code,area_name,zone_id,description) values ('Krkh','Kharkhana',2,'');
+insert into uss_areas (area_code,area_name,zone_id,description) values ('Begu','Begumpet',1,'');
+insert into uss_areas (area_code,area_name,zone_id,description) values ('Ameer','Ammerpet',1,'');
