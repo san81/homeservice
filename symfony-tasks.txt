@@ -1,0 +1,59 @@
+php lib\vendor\symfony\data\bin\symfony generate:project uss
+
+php symfony generate:app --escaping-strategy=on --csrf-secret=UniqueSecret frontend
+
+copy lib\vendor\symfony\data\bin\symfony.bat .
+
+php symfony configure:database --name=doctrine --class=sfDoctrineDatabase "mysql:host=localhost;dbname=homeservice" root pramati
+
+php symfony doctrine:build-schema
+
+
+Symfony version used 1.4.2  - with Doctrin ORM
+
+php symfony doctrine:build-model
+
+
+---  php symfony doctrine:build-all --no-confirmation
+
+php symfony cache:clear
+
+php symfony doctrine:build-forms
+
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend items Items
+
+
+
+
+
+########################## httpd.conf settings ########################
+
+#BEGIN PHP INSTALLER EDITS - REMOVE ONLY ON UNINSTALL
+PHPIniDir "C:/PHP-5.2.4/"
+LoadModule php5_module "C:/PHP-5.2.4/php5apache2_2.dll"
+#END PHP INSTALLER EDITS - REMOVE ONLY ON UNINSTALL
+
+# Be sure to only have this line once in your configuration
+NameVirtualHost 127.0.0.1:8080
+
+# This is the configuration for your project
+Listen 127.0.0.1:8080
+
+<VirtualHost 127.0.0.1:8080>
+  DocumentRoot "c:/sfproject/web"
+  DirectoryIndex index.php
+  <Directory "c:/sfproject/web">
+    AllowOverride All
+    Allow from All
+  </Directory>
+
+  Alias /sf c:/sfproject/lib/vendor/symfony/data/web/sf
+  <Directory "c:/sfproject/lib/vendor/symfony/data/web/sf">
+    AllowOverride All
+    Allow from All
+  </Directory>
+</VirtualHost>
+
+
+######################################################################
+
