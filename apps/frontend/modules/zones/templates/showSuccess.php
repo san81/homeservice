@@ -1,3 +1,8 @@
+<?php slot(
+  'title',
+  sprintf(' All Areas of %s', $zones->getZoneName()))
+?>
+<?php end_slot(); ?>
 <table>
   <tbody>
     <tr>

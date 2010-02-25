@@ -9,6 +9,13 @@ php symfony configure:database --name=doctrine --class=sfDoctrineDatabase "mysql
 php symfony doctrine:build-schema
 
 
+www.uss.spconsultancy.com
+
+ftp: ussspc
+password: USS123
+
+mysql -h mysql9.ixwebhosting.com -u vighnes_elearndb -pvighSP123db
+
 Symfony version used 1.4.2  - with Doctrin ORM
 
 php symfony doctrine:build-model
