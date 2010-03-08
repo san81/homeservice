@@ -6,13 +6,15 @@ use homeservice;
 Create table category(
 category_id integer(6) auto_increment primary key,
 category_name varchar(200) not null,
-description text)ENGINE=InnoDB AUTO_INCREMENT=81;
+description text)ENGINE=InnoDB;
 
 Create table items(
 item_id integer(6) auto_increment primary key,
 item_name varchar(200) not null,
 item_price float(8,2) not null,
-item_description text )ENGINE=InnoDB AUTO_INCREMENT=81;
+category_id integer(6) not null,
+item_description text,
+FOREIGN KEY(category_id) REFERENCES category(category_id) ON UPDATE CASCADE)ENGINE=InnoDB;
 
 Create table zones(
 zone_id integer(6) auto_increment primary key,
@@ -92,9 +94,13 @@ FOREIGN KEY(`item_id`) REFERENCES items(`item_id`) ON UPDATE CASCADE
 
 -- default data
 
-insert into items (item_name,item_price,item_description) values ('fan',100,'Fan repair');
-insert into items (item_name,item_price,item_description) values ('Cooler',300,'Fan repair');
-insert into items (item_name,item_price,item_description) values ('Water pump',500,'Fan repair');
+insert into category ( category_name,deescription) values ('Electrical','');
+insert into category ( category_name,deescription) values ('Electronics','');
+insert into category ( category_name,deescription) values ('Mechanical','');
+
+insert into items (item_name,item_price,item_description,category_id) values ('fan',100,'Fan repair',1);
+insert into items (item_name,item_price,item_description,category_id) values ('Cooler',300,'Fan repair',2);
+insert into items (item_name,item_price,item_description,category_id) values ('Water pump',500,'Fan repair',3);
 
 
 insert into zones (zone_code,zone_name,description) values ('HydZone','Hyderabad zone','This is Hyderabad zone');
