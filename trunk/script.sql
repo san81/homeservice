@@ -3,6 +3,11 @@ drop database homeservice;
 create database homeservice;
 use homeservice;
 
+Create table category(
+category_id integer(6) auto_increment primary key,
+category_name varchar(200) not null,
+description text)ENGINE=InnoDB AUTO_INCREMENT=81;
+
 Create table items(
 item_id integer(6) auto_increment primary key,
 item_name varchar(200) not null,
