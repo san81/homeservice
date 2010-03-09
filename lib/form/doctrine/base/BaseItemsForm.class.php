@@ -18,13 +18,15 @@ abstract class BaseItemsForm extends BaseFormDoctrine
       'item_id'          => new sfWidgetFormInputHidden(),
       'item_name'        => new sfWidgetFormInputText(),
       'item_price'       => new sfWidgetFormInputText(),
+      'category_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => false)),
       'item_description' => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
       'item_id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'item_id', 'required' => false)),
-      'item_name'        => new sfValidatorString(array('max_length' => 200, 'required' => false)),
-      'item_price'       => new sfValidatorNumber(array('required' => false)),
+      'item_name'        => new sfValidatorString(array('max_length' => 200)),
+      'item_price'       => new sfValidatorNumber(),
+      'category_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Category'))),
       'item_description' => new sfValidatorString(array('required' => false)),
     ));
 

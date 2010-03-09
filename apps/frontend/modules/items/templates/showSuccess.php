@@ -13,6 +13,10 @@
       <td><?php echo $items->getItemPrice() ?></td>
     </tr>
     <tr>
+      <th>Category:</th>
+      <td><?php echo $items->getCategoryId() ?></td>
+    </tr>
+    <tr>
       <th>Item description:</th>
       <td><?php echo $items->getItemDescription() ?></td>
     </tr>

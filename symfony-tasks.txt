@@ -11,10 +11,7 @@ php symfony doctrine:build-schema
 
 www.uss.spconsultancy.com
 
-ftp: ussspc
-password: USS123
-
-mysql -h mysql9.ixwebhosting.com -u vighnes_elearndb -pvighSP123db
+b
 
 Symfony version used 1.4.2  - with Doctrin ORM
 
@@ -27,7 +24,13 @@ php symfony cache:clear
 
 php symfony doctrine:build-forms
 
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend category Category
 php symfony doctrine:generate-module --with-show --non-verbose-templates frontend items Items
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend zones Zones
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend areas Areas
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend customer Customer
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend employee Employee
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend complaints Complaints
 
 
 

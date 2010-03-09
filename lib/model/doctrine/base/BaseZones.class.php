@@ -62,7 +62,6 @@ abstract class BaseZones extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
              'notnull' => true,
              'autoincrement' => false,
              'length' => '255',

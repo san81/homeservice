@@ -45,6 +45,10 @@
       <td><?php echo $employee->getSkillSet() ?></td>
     </tr>
     <tr>
+      <th>Category:</th>
+      <td><?php echo $employee->getCategoryId() ?></td>
+    </tr>
+    <tr>
       <th>Address:</th>
       <td><?php echo $employee->getAddress() ?></td>
     </tr>

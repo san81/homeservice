@@ -20,7 +20,6 @@ Areas:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     zone_id:
@@ -49,6 +48,39 @@ Areas:
     Employee:
       local: area_id
       foreign: area_id
+      type: many
+Category:
+  connection: doctrine
+  tableName: category
+  columns:
+    category_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    category_name:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Employee:
+      local: category_id
+      foreign: category_id
+      type: many
+    Items:
+      local: category_id
+      foreign: category_id
       type: many
 Complaints:
   connection: doctrine
@@ -189,7 +221,6 @@ Customer:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     sur_name:
@@ -197,7 +228,6 @@ Customer:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     mobile:
@@ -205,7 +235,6 @@ Customer:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     zone_id:
@@ -282,7 +311,6 @@ Employee:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     sur_name:
@@ -290,7 +318,6 @@ Employee:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     mobile:
@@ -298,7 +325,6 @@ Employee:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     zone_id:
@@ -336,6 +362,13 @@ Employee:
       primary: false
       notnull: false
       autoincrement: false
+    category_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     address:
       type: string()
       fixed: false
@@ -356,6 +389,10 @@ Employee:
       local: area_id
       foreign: area_id
       type: one
+    Category:
+      local: category_id
+      foreign: category_id
+      type: one
     Complaints:
       local: emp_id
       foreign: assigned_emp_id
@@ -375,7 +412,6 @@ Items:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     item_price:
@@ -383,7 +419,13 @@ Items:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
+      notnull: true
+      autoincrement: false
+    category_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
       autoincrement: false
     item_description:
@@ -394,6 +436,10 @@ Items:
       notnull: false
       autoincrement: false
   relations:
+    Category:
+      local: category_id
+      foreign: category_id
+      type: one
     Complaints:
       local: item_id
       foreign: item_id
@@ -424,7 +470,6 @@ Zones:
       fixed: false
       unsigned: false
       primary: false
-      default: ''
       notnull: true
       autoincrement: false
     description:
