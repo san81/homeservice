@@ -96,9 +96,9 @@ FOREIGN KEY(`item_id`) REFERENCES items(`item_id`) ON UPDATE CASCADE
 
 -- default data
 
-insert into category ( category_name,description) values ('Electrical','');
-insert into category ( category_name,description) values ('Electronics','');
-insert into category ( category_name,description) values ('Mechanical','');
+insert into category ( category_name,description) values ('Electrical','Electrical');
+insert into category ( category_name,description) values ('Electronics','Electronics');
+insert into category ( category_name,description) values ('Mechanical','Mechanical');
 
 insert into items (item_name,item_price,item_description,category_id) values ('fan',100,'Fan repair',1);
 insert into items (item_name,item_price,item_description,category_id) values ('Cooler',300,'Fan repair',2);
