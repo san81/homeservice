@@ -69,10 +69,12 @@ area_id integer(6),
 role varchar(30),
 working_under integer(6),
 skill_set text,
+category_id integer(6),
 address text,
 FOREIGN KEY(`working_under`) REFERENCES employee(`emp_id`) ON UPDATE CASCADE,
 FOREIGN KEY(`zone_id`) REFERENCES zones(`zone_id`) ON UPDATE CASCADE,
-FOREIGN KEY(`area_id`) REFERENCES areas(`area_id`) ON UPDATE CASCADE
+FOREIGN KEY(`area_id`) REFERENCES areas(`area_id`) ON UPDATE CASCADE,
+FOREIGN KEY(category_id) REFERENCES category(category_id) ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
 
@@ -94,9 +96,9 @@ FOREIGN KEY(`item_id`) REFERENCES items(`item_id`) ON UPDATE CASCADE
 
 -- default data
 
-insert into category ( category_name,deescription) values ('Electrical','');
-insert into category ( category_name,deescription) values ('Electronics','');
-insert into category ( category_name,deescription) values ('Mechanical','');
+insert into category ( category_name,description) values ('Electrical','');
+insert into category ( category_name,description) values ('Electronics','');
+insert into category ( category_name,description) values ('Mechanical','');
 
 insert into items (item_name,item_price,item_description,category_id) values ('fan',100,'Fan repair',1);
 insert into items (item_name,item_price,item_description,category_id) values ('Cooler',300,'Fan repair',2);

@@ -25,7 +25,7 @@ abstract class BaseAreasForm extends BaseFormDoctrine
     $this->setValidators(array(
       'area_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'area_id', 'required' => false)),
       'area_code'   => new sfValidatorString(array('max_length' => 5, 'required' => false)),
-      'area_name'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'area_name'   => new sfValidatorString(array('max_length' => 255)),
       'zone_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Zones'), 'required' => false)),
       'description' => new sfValidatorString(array('required' => false)),
     ));

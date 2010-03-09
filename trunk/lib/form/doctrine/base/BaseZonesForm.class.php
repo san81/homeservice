@@ -24,7 +24,7 @@ abstract class BaseZonesForm extends BaseFormDoctrine
     $this->setValidators(array(
       'zone_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'zone_id', 'required' => false)),
       'zone_code'   => new sfValidatorString(array('max_length' => 10, 'required' => false)),
-      'zone_name'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'zone_name'   => new sfValidatorString(array('max_length' => 255)),
       'description' => new sfValidatorString(array('required' => false)),
     ));
 

@@ -18,10 +18,12 @@ Doctrine_Manager::getInstance()->bindComponent('Employee', 'doctrine');
  * @property string $role
  * @property integer $working_under
  * @property string $skill_set
+ * @property integer $category_id
  * @property string $address
  * @property Doctrine_Collection $Employee
  * @property Zones $Zones
  * @property Areas $Areas
+ * @property Category $Category
  * @property Doctrine_Collection $Complaints
  * 
  * @method integer             getEmpId()         Returns the current record's "emp_id" value
@@ -35,10 +37,12 @@ Doctrine_Manager::getInstance()->bindComponent('Employee', 'doctrine');
  * @method string              getRole()          Returns the current record's "role" value
  * @method integer             getWorkingUnder()  Returns the current record's "working_under" value
  * @method string              getSkillSet()      Returns the current record's "skill_set" value
+ * @method integer             getCategoryId()    Returns the current record's "category_id" value
  * @method string              getAddress()       Returns the current record's "address" value
  * @method Doctrine_Collection getEmployee()      Returns the current record's "Employee" collection
  * @method Zones               getZones()         Returns the current record's "Zones" value
  * @method Areas               getAreas()         Returns the current record's "Areas" value
+ * @method Category            getCategory()      Returns the current record's "Category" value
  * @method Doctrine_Collection getComplaints()    Returns the current record's "Complaints" collection
  * @method Employee            setEmpId()         Sets the current record's "emp_id" value
  * @method Employee            setRegDate()       Sets the current record's "reg_date" value
@@ -51,10 +55,12 @@ Doctrine_Manager::getInstance()->bindComponent('Employee', 'doctrine');
  * @method Employee            setRole()          Sets the current record's "role" value
  * @method Employee            setWorkingUnder()  Sets the current record's "working_under" value
  * @method Employee            setSkillSet()      Sets the current record's "skill_set" value
+ * @method Employee            setCategoryId()    Sets the current record's "category_id" value
  * @method Employee            setAddress()       Sets the current record's "address" value
  * @method Employee            setEmployee()      Sets the current record's "Employee" collection
  * @method Employee            setZones()         Sets the current record's "Zones" value
  * @method Employee            setAreas()         Sets the current record's "Areas" value
+ * @method Employee            setCategory()      Sets the current record's "Category" value
  * @method Employee            setComplaints()    Sets the current record's "Complaints" collection
  * 
  * @package    uss
@@ -98,7 +104,6 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
              'notnull' => true,
              'autoincrement' => false,
              'length' => '100',
@@ -108,7 +113,6 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
              'notnull' => true,
              'autoincrement' => false,
              'length' => '100',
@@ -118,7 +122,6 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
              'notnull' => true,
              'autoincrement' => false,
              'length' => '10',
@@ -168,6 +171,15 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => '',
              ));
+        $this->hasColumn('category_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => '4',
+             ));
         $this->hasColumn('address', 'string', null, array(
              'type' => 'string',
              'fixed' => 0,
@@ -193,6 +205,10 @@ abstract class BaseEmployee extends sfDoctrineRecord
         $this->hasOne('Areas', array(
              'local' => 'area_id',
              'foreign' => 'area_id'));
+
+        $this->hasOne('Category', array(
+             'local' => 'category_id',
+             'foreign' => 'category_id'));
 
         $this->hasMany('Complaints', array(
              'local' => 'emp_id',

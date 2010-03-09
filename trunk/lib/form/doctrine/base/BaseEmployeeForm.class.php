@@ -26,6 +26,7 @@ abstract class BaseEmployeeForm extends BaseFormDoctrine
       'role'          => new sfWidgetFormInputText(),
       'working_under' => new sfWidgetFormInputText(),
       'skill_set'     => new sfWidgetFormTextarea(),
+      'category_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => true)),
       'address'       => new sfWidgetFormTextarea(),
     ));
 
@@ -33,14 +34,15 @@ abstract class BaseEmployeeForm extends BaseFormDoctrine
       'emp_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'emp_id', 'required' => false)),
       'reg_date'      => new sfValidatorDateTime(array('required' => false)),
       'emp_code'      => new sfValidatorString(array('max_length' => 30, 'required' => false)),
-      'name'          => new sfValidatorString(array('max_length' => 100, 'required' => false)),
-      'sur_name'      => new sfValidatorString(array('max_length' => 100, 'required' => false)),
-      'mobile'        => new sfValidatorString(array('max_length' => 10, 'required' => false)),
+      'name'          => new sfValidatorString(array('max_length' => 100)),
+      'sur_name'      => new sfValidatorString(array('max_length' => 100)),
+      'mobile'        => new sfValidatorString(array('max_length' => 10)),
       'zone_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Zones'), 'required' => false)),
       'area_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Areas'), 'required' => false)),
       'role'          => new sfValidatorString(array('max_length' => 30, 'required' => false)),
       'working_under' => new sfValidatorInteger(array('required' => false)),
       'skill_set'     => new sfValidatorString(array('required' => false)),
+      'category_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'required' => false)),
       'address'       => new sfValidatorString(array('required' => false)),
     ));
 

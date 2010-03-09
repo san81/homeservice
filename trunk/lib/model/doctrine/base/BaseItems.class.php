@@ -10,20 +10,26 @@ Doctrine_Manager::getInstance()->bindComponent('Items', 'doctrine');
  * @property integer $item_id
  * @property string $item_name
  * @property float $item_price
+ * @property integer $category_id
  * @property string $item_description
+ * @property Category $Category
  * @property Doctrine_Collection $Complaints
  * @property Doctrine_Collection $CustRegItems
  * 
  * @method integer             getItemId()           Returns the current record's "item_id" value
  * @method string              getItemName()         Returns the current record's "item_name" value
  * @method float               getItemPrice()        Returns the current record's "item_price" value
+ * @method integer             getCategoryId()       Returns the current record's "category_id" value
  * @method string              getItemDescription()  Returns the current record's "item_description" value
+ * @method Category            getCategory()         Returns the current record's "Category" value
  * @method Doctrine_Collection getComplaints()       Returns the current record's "Complaints" collection
  * @method Doctrine_Collection getCustRegItems()     Returns the current record's "CustRegItems" collection
  * @method Items               setItemId()           Sets the current record's "item_id" value
  * @method Items               setItemName()         Sets the current record's "item_name" value
  * @method Items               setItemPrice()        Sets the current record's "item_price" value
+ * @method Items               setCategoryId()       Sets the current record's "category_id" value
  * @method Items               setItemDescription()  Sets the current record's "item_description" value
+ * @method Items               setCategory()         Sets the current record's "Category" value
  * @method Items               setComplaints()       Sets the current record's "Complaints" collection
  * @method Items               setCustRegItems()     Sets the current record's "CustRegItems" collection
  * 
@@ -50,7 +56,6 @@ abstract class BaseItems extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
              'notnull' => true,
              'autoincrement' => false,
              'length' => '200',
@@ -60,10 +65,18 @@ abstract class BaseItems extends sfDoctrineRecord
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
-             'default' => '',
              'notnull' => true,
              'autoincrement' => false,
              'length' => '8',
+             ));
+        $this->hasColumn('category_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => '4',
              ));
         $this->hasColumn('item_description', 'string', null, array(
              'type' => 'string',
@@ -79,6 +92,10 @@ abstract class BaseItems extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('Category', array(
+             'local' => 'category_id',
+             'foreign' => 'category_id'));
+
         $this->hasMany('Complaints', array(
              'local' => 'item_id',
              'foreign' => 'item_id'));

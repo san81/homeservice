@@ -14,6 +14,7 @@
       <th>Role</th>
       <th>Working under</th>
       <th>Skill set</th>
+      <th>Category</th>
       <th>Address</th>
     </tr>
   </thead>
@@ -31,6 +32,7 @@
       <td><?php echo $employee->getRole() ?></td>
       <td><?php echo $employee->getWorkingUnder() ?></td>
       <td><?php echo $employee->getSkillSet() ?></td>
+      <td><?php echo $employee->getCategoryId() ?></td>
       <td><?php echo $employee->getAddress() ?></td>
     </tr>
     <?php endforeach; ?>
