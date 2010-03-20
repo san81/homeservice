@@ -1,0 +1,91 @@
+
+www.uss.spconsultancy.com
+
+ftp: ussspc
+password: USS123
+
+ok.
+
+
+Database connection program ... iam giving ....use this ...........ok... if u have any more queries ... u can ring me ....ok.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<?php
+    session_start();
+$conn = mysql_connect ('mysql9.ixwebhosting.com','vighnes_elearndb','vighSP123db')
+         or die ('Unable To Connect to Database' . mysql_error());
+//echo 'Connected Successfully --- SP ';
+//connection to the database not tables .... need to give database name
+mysql_select_db ('vighnes_elearn')
+    or die ('Could not select database from elearn');
+//echo '<br>Entered name and password detials : ';
+//echo $loginid;
+//echo $pass;
+$desg="";
+$result = mysql_query("SELECT tlogin.user_id, tpersonal.name, tlogin.user_type FROM tlogin, tpersonal where tlogin.user_id=tpersonal.user_id and tlogin.user_type !=1",$conn);
+echo "<TABLE border='1'>";
+echo"<TR bgcolor='#66CCFF'><TD><B>User Id</B><TD><B>Name</B><TD><B>Designation</B></TR>";
+while ($myrow = mysql_fetch_array($result))
+{
+echo "<TR><TD>";
+$user = $myrow["user_id"];
+echo $myrow["user_id"];
+echo "<td>";
+$username = $myrow["name"];
+echo "<a href=memberprofile.php?eid=$user>".$myrow["name"]."</a>";
+echo "<td>";
+if ($myrow["user_type"]==2)
+    {
+        $desg="Techinical Expert";
+        echo $desg;
+    }
+else if ($myrow["user_type"]==3)
+    {
+        $desg="Administrator";
+        echo $desg;
+    }
+else if ($myrow["user_type"]==4)
+    {
+        $desg="Advicer";
+        echo $desg;
+    }
+else
+    {
+        $desg="Managing Director";
+        echo $desg;
+    }
+//$passw = $myrow["password"];
+//echo $myrow["password"];
+//$statusdb=$myrow['status'];
+}
+echo "</TABLE>";
+?>
+
+
+
+http://www.indiademocracy.org
+http://www.neighborhoodfriends.com/
+http://www.tagdin.com
+http://store.myinnerworld.com
+http://coxpac.com
+
+We have developed different types of applications from social networking to SaaS application. Our recent project is a SaaS based site builder for online appointment system.
+
+
+www.clientwebpro.com
+Sample sites
+http://info.clientwebpro.com/
+http://ali.clientwebpro.com/
+http://lamp.clientwebpro.com/
+http://ronsmassage.com/
+
+Our other projects
+www.indiademocracy.org
+http://www.neighborhoodfriends.com/
+www.tagdin.com
+http://store.myinnerworld.com
+http://coxpac.com
+
+ 
