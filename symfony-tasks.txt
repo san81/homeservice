@@ -15,11 +15,13 @@ b
 
 Symfony version used 1.4.2  - with Doctrin ORM
 
-php symfony doctrine:build-model
+
 
 
 ---  php symfony doctrine:build-all --no-confirmation
 
+php symfony doctrine:build-schema
+php symfony doctrine:build-model
 php symfony cache:clear
 
 php symfony doctrine:build-forms
@@ -31,6 +33,8 @@ php symfony doctrine:generate-module --with-show --non-verbose-templates fronten
 php symfony doctrine:generate-module --with-show --non-verbose-templates frontend customer Customer
 php symfony doctrine:generate-module --with-show --non-verbose-templates frontend employee Employee
 php symfony doctrine:generate-module --with-show --non-verbose-templates frontend complaints Complaints
+php symfony doctrine:generate-module --with-show --non-verbose-templates frontend city city
+
 
 
 

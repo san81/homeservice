@@ -18,6 +18,7 @@ abstract class BaseZonesForm extends BaseFormDoctrine
       'zone_id'     => new sfWidgetFormInputHidden(),
       'zone_code'   => new sfWidgetFormInputText(),
       'zone_name'   => new sfWidgetFormInputText(),
+      'city_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('City'), 'add_empty' => true)),
       'description' => new sfWidgetFormTextarea(),
     ));
 
@@ -25,6 +26,7 @@ abstract class BaseZonesForm extends BaseFormDoctrine
       'zone_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'zone_id', 'required' => false)),
       'zone_code'   => new sfValidatorString(array('max_length' => 10, 'required' => false)),
       'zone_name'   => new sfValidatorString(array('max_length' => 255)),
+      'city_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('City'), 'required' => false)),
       'description' => new sfValidatorString(array('required' => false)),
     ));
 

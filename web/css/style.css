@@ -1,5 +1,5 @@
 * {
-	margin : 0px;
+	margin : 0px;page_maincol
 	padding : 0px;
 }
 
@@ -119,8 +119,9 @@ a:hover {
 
 #page_maincol {
 	margin-left : 14px;
-	width : 362px;
+	width : 562px;
 	float : left;
+    font-size : 15px;
 }
 
 #page_rightcol {

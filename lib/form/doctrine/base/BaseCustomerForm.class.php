@@ -17,7 +17,7 @@ abstract class BaseCustomerForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'customer_id' => new sfWidgetFormInputHidden(),
       'reg_date'    => new sfWidgetFormDateTime(),
-      'person_code' => new sfWidgetFormInputText(),
+      'person_code' => new sfWidgetFormInputHidden(),
       'name'        => new sfWidgetFormInputText(),
       'sur_name'    => new sfWidgetFormInputText(),
       'mobile'      => new sfWidgetFormInputText(),

@@ -10,7 +10,9 @@ Doctrine_Manager::getInstance()->bindComponent('Zones', 'doctrine');
  * @property integer $zone_id
  * @property string $zone_code
  * @property string $zone_name
+ * @property integer $city_id
  * @property string $description
+ * @property City $City
  * @property Doctrine_Collection $Areas
  * @property Doctrine_Collection $Customer
  * @property Doctrine_Collection $Employee
@@ -18,14 +20,18 @@ Doctrine_Manager::getInstance()->bindComponent('Zones', 'doctrine');
  * @method integer             getZoneId()      Returns the current record's "zone_id" value
  * @method string              getZoneCode()    Returns the current record's "zone_code" value
  * @method string              getZoneName()    Returns the current record's "zone_name" value
+ * @method integer             getCityId()      Returns the current record's "city_id" value
  * @method string              getDescription() Returns the current record's "description" value
+ * @method City                getCity()        Returns the current record's "City" value
  * @method Doctrine_Collection getAreas()       Returns the current record's "Areas" collection
  * @method Doctrine_Collection getCustomer()    Returns the current record's "Customer" collection
  * @method Doctrine_Collection getEmployee()    Returns the current record's "Employee" collection
  * @method Zones               setZoneId()      Sets the current record's "zone_id" value
  * @method Zones               setZoneCode()    Sets the current record's "zone_code" value
  * @method Zones               setZoneName()    Sets the current record's "zone_name" value
+ * @method Zones               setCityId()      Sets the current record's "city_id" value
  * @method Zones               setDescription() Sets the current record's "description" value
+ * @method Zones               setCity()        Sets the current record's "City" value
  * @method Zones               setAreas()       Sets the current record's "Areas" collection
  * @method Zones               setCustomer()    Sets the current record's "Customer" collection
  * @method Zones               setEmployee()    Sets the current record's "Employee" collection
@@ -66,6 +72,15 @@ abstract class BaseZones extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => '255',
              ));
+        $this->hasColumn('city_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => '4',
+             ));
         $this->hasColumn('description', 'string', null, array(
              'type' => 'string',
              'fixed' => 0,
@@ -80,6 +95,10 @@ abstract class BaseZones extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('City', array(
+             'local' => 'city_id',
+             'foreign' => 'city_id'));
+
         $this->hasMany('Areas', array(
              'local' => 'zone_id',
              'foreign' => 'zone_id'));

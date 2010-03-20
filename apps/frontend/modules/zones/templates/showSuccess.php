@@ -13,6 +13,10 @@
       <td><?php echo $zones->getZoneName() ?></td>
     </tr>
     <tr>
+      <th>City:</th>
+      <td><?php echo $zones->getCityId() ?></td>
+    </tr>
+    <tr>
       <th>Description:</th>
       <td><?php echo $zones->getDescription() ?></td>
     </tr>
