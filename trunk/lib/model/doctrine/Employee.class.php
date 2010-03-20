@@ -12,5 +12,15 @@
  */
 class Employee extends BaseEmployee
 {
+    public function save(Doctrine_Connection $conn = null)
+      {
+        if ($this->isNew() && !$this->getEmp_code())
+        {
+            $zone = $this->getZones();
+          $empCodeDerived = $zone->getCity()->getCity_name(). $zone->getZone_code() .$this->getEmployeeProfiles()->getProfile_code().$this->getEmp_id();
+          $this->setEmp_code($empCodeDerived);
+        }
 
+        return parent::save($conn);
+      }
 }

@@ -13,6 +13,10 @@
       <td><?php echo $employee->getEmpCode() ?></td>
     </tr>
     <tr>
+      <th>Emp profile:</th>
+      <td><?php echo $employee->getEmpProfileId() ?></td>
+    </tr>
+    <tr>
       <th>Name:</th>
       <td><?php echo $employee->getName() ?></td>
     </tr>
@@ -31,10 +35,6 @@
     <tr>
       <th>Area:</th>
       <td><?php echo $employee->getAreaId() ?></td>
-    </tr>
-    <tr>
-      <th>Role:</th>
-      <td><?php echo $employee->getRole() ?></td>
     </tr>
     <tr>
       <th>Working under:</th>

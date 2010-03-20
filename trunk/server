@@ -9,6 +9,8 @@ ok.
 
 Database connection program ... iam giving ....use this ...........ok... if u have any more queries ... u can ring me ....ok.
 
+mysql -h mysql9.ixwebhosting.com -u vighnes_elearndb -pvighSP123db
+use vighnes_elearn;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -62,30 +64,3 @@ else
 }
 echo "</TABLE>";
 ?>
-
-
-
-http://www.indiademocracy.org
-http://www.neighborhoodfriends.com/
-http://www.tagdin.com
-http://store.myinnerworld.com
-http://coxpac.com
-
-We have developed different types of applications from social networking to SaaS application. Our recent project is a SaaS based site builder for online appointment system.
-
-
-www.clientwebpro.com
-Sample sites
-http://info.clientwebpro.com/
-http://ali.clientwebpro.com/
-http://lamp.clientwebpro.com/
-http://ronsmassage.com/
-
-Our other projects
-www.indiademocracy.org
-http://www.neighborhoodfriends.com/
-www.tagdin.com
-http://store.myinnerworld.com
-http://coxpac.com
-
- 

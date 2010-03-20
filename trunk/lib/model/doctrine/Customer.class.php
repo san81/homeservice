@@ -12,5 +12,16 @@
  */
 class Customer extends BaseCustomer
 {
+    public function save(Doctrine_Connection $conn = null)
+      {
+        if ($this->isNew() && !$this->getPerson_code())
+        {
+          $zone = $this->getZones();
+          $customerCodeDerived = $zone->getCity()->getCity_name(). $zone->getZone_code() .'Slob'.rand(100,1000);
+          $this->setPerson_code($customerCodeDerived);
+        }
+
+        return parent::save($conn);
+      }
 
 }

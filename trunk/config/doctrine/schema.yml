@@ -82,6 +82,35 @@ Category:
       local: category_id
       foreign: category_id
       type: many
+City:
+  connection: doctrine
+  tableName: city
+  columns:
+    city_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    city_name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Zones:
+      local: city_id
+      foreign: city_id
+      type: many
 Complaints:
   connection: doctrine
   tableName: complaints
@@ -306,6 +335,13 @@ Employee:
       primary: false
       notnull: false
       autoincrement: false
+    emp_profile_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     name:
       type: string(100)
       fixed: false
@@ -336,13 +372,6 @@ Employee:
       autoincrement: false
     area_id:
       type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    role:
-      type: string(30)
       fixed: false
       unsigned: false
       primary: false
@@ -393,9 +422,42 @@ Employee:
       local: category_id
       foreign: category_id
       type: one
+    EmployeeProfiles:
+      local: emp_profile_id
+      foreign: profile_id
+      type: one
     Complaints:
       local: emp_id
       foreign: assigned_emp_id
+      type: many
+EmployeeProfiles:
+  connection: doctrine
+  tableName: employee_profiles
+  columns:
+    profile_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    profile_code:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Employee:
+      local: profile_id
+      foreign: emp_profile_id
       type: many
 Items:
   connection: doctrine
@@ -472,6 +534,13 @@ Zones:
       primary: false
       notnull: true
       autoincrement: false
+    city_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
     description:
       type: string()
       fixed: false
@@ -480,6 +549,10 @@ Zones:
       notnull: false
       autoincrement: false
   relations:
+    City:
+      local: city_id
+      foreign: city_id
+      type: one
     Areas:
       local: zone_id
       foreign: zone_id

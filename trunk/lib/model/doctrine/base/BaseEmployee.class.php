@@ -10,12 +10,12 @@ Doctrine_Manager::getInstance()->bindComponent('Employee', 'doctrine');
  * @property integer $emp_id
  * @property timestamp $reg_date
  * @property string $emp_code
+ * @property integer $emp_profile_id
  * @property string $name
  * @property string $sur_name
  * @property string $mobile
  * @property integer $zone_id
  * @property integer $area_id
- * @property string $role
  * @property integer $working_under
  * @property string $skill_set
  * @property integer $category_id
@@ -24,44 +24,47 @@ Doctrine_Manager::getInstance()->bindComponent('Employee', 'doctrine');
  * @property Zones $Zones
  * @property Areas $Areas
  * @property Category $Category
+ * @property EmployeeProfiles $EmployeeProfiles
  * @property Doctrine_Collection $Complaints
  * 
- * @method integer             getEmpId()         Returns the current record's "emp_id" value
- * @method timestamp           getRegDate()       Returns the current record's "reg_date" value
- * @method string              getEmpCode()       Returns the current record's "emp_code" value
- * @method string              getName()          Returns the current record's "name" value
- * @method string              getSurName()       Returns the current record's "sur_name" value
- * @method string              getMobile()        Returns the current record's "mobile" value
- * @method integer             getZoneId()        Returns the current record's "zone_id" value
- * @method integer             getAreaId()        Returns the current record's "area_id" value
- * @method string              getRole()          Returns the current record's "role" value
- * @method integer             getWorkingUnder()  Returns the current record's "working_under" value
- * @method string              getSkillSet()      Returns the current record's "skill_set" value
- * @method integer             getCategoryId()    Returns the current record's "category_id" value
- * @method string              getAddress()       Returns the current record's "address" value
- * @method Doctrine_Collection getEmployee()      Returns the current record's "Employee" collection
- * @method Zones               getZones()         Returns the current record's "Zones" value
- * @method Areas               getAreas()         Returns the current record's "Areas" value
- * @method Category            getCategory()      Returns the current record's "Category" value
- * @method Doctrine_Collection getComplaints()    Returns the current record's "Complaints" collection
- * @method Employee            setEmpId()         Sets the current record's "emp_id" value
- * @method Employee            setRegDate()       Sets the current record's "reg_date" value
- * @method Employee            setEmpCode()       Sets the current record's "emp_code" value
- * @method Employee            setName()          Sets the current record's "name" value
- * @method Employee            setSurName()       Sets the current record's "sur_name" value
- * @method Employee            setMobile()        Sets the current record's "mobile" value
- * @method Employee            setZoneId()        Sets the current record's "zone_id" value
- * @method Employee            setAreaId()        Sets the current record's "area_id" value
- * @method Employee            setRole()          Sets the current record's "role" value
- * @method Employee            setWorkingUnder()  Sets the current record's "working_under" value
- * @method Employee            setSkillSet()      Sets the current record's "skill_set" value
- * @method Employee            setCategoryId()    Sets the current record's "category_id" value
- * @method Employee            setAddress()       Sets the current record's "address" value
- * @method Employee            setEmployee()      Sets the current record's "Employee" collection
- * @method Employee            setZones()         Sets the current record's "Zones" value
- * @method Employee            setAreas()         Sets the current record's "Areas" value
- * @method Employee            setCategory()      Sets the current record's "Category" value
- * @method Employee            setComplaints()    Sets the current record's "Complaints" collection
+ * @method integer             getEmpId()            Returns the current record's "emp_id" value
+ * @method timestamp           getRegDate()          Returns the current record's "reg_date" value
+ * @method string              getEmpCode()          Returns the current record's "emp_code" value
+ * @method integer             getEmpProfileId()     Returns the current record's "emp_profile_id" value
+ * @method string              getName()             Returns the current record's "name" value
+ * @method string              getSurName()          Returns the current record's "sur_name" value
+ * @method string              getMobile()           Returns the current record's "mobile" value
+ * @method integer             getZoneId()           Returns the current record's "zone_id" value
+ * @method integer             getAreaId()           Returns the current record's "area_id" value
+ * @method integer             getWorkingUnder()     Returns the current record's "working_under" value
+ * @method string              getSkillSet()         Returns the current record's "skill_set" value
+ * @method integer             getCategoryId()       Returns the current record's "category_id" value
+ * @method string              getAddress()          Returns the current record's "address" value
+ * @method Doctrine_Collection getEmployee()         Returns the current record's "Employee" collection
+ * @method Zones               getZones()            Returns the current record's "Zones" value
+ * @method Areas               getAreas()            Returns the current record's "Areas" value
+ * @method Category            getCategory()         Returns the current record's "Category" value
+ * @method EmployeeProfiles    getEmployeeProfiles() Returns the current record's "EmployeeProfiles" value
+ * @method Doctrine_Collection getComplaints()       Returns the current record's "Complaints" collection
+ * @method Employee            setEmpId()            Sets the current record's "emp_id" value
+ * @method Employee            setRegDate()          Sets the current record's "reg_date" value
+ * @method Employee            setEmpCode()          Sets the current record's "emp_code" value
+ * @method Employee            setEmpProfileId()     Sets the current record's "emp_profile_id" value
+ * @method Employee            setName()             Sets the current record's "name" value
+ * @method Employee            setSurName()          Sets the current record's "sur_name" value
+ * @method Employee            setMobile()           Sets the current record's "mobile" value
+ * @method Employee            setZoneId()           Sets the current record's "zone_id" value
+ * @method Employee            setAreaId()           Sets the current record's "area_id" value
+ * @method Employee            setWorkingUnder()     Sets the current record's "working_under" value
+ * @method Employee            setSkillSet()         Sets the current record's "skill_set" value
+ * @method Employee            setCategoryId()       Sets the current record's "category_id" value
+ * @method Employee            setAddress()          Sets the current record's "address" value
+ * @method Employee            setEmployee()         Sets the current record's "Employee" collection
+ * @method Employee            setZones()            Sets the current record's "Zones" value
+ * @method Employee            setAreas()            Sets the current record's "Areas" value
+ * @method Employee            setCategory()         Sets the current record's "Category" value
+ * @method Employee            setEmployeeProfiles() Sets the current record's "EmployeeProfiles" value
+ * @method Employee            setComplaints()       Sets the current record's "Complaints" collection
  * 
  * @package    uss
  * @subpackage model
@@ -98,6 +101,15 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => '30',
+             ));
+        $this->hasColumn('emp_profile_id', 'integer', 4, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => '4',
              ));
         $this->hasColumn('name', 'string', 100, array(
              'type' => 'string',
@@ -143,15 +155,6 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => '4',
-             ));
-        $this->hasColumn('role', 'string', 30, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => false,
-             'autoincrement' => false,
-             'length' => '30',
              ));
         $this->hasColumn('working_under', 'integer', 4, array(
              'type' => 'integer',
@@ -209,6 +212,10 @@ abstract class BaseEmployee extends sfDoctrineRecord
         $this->hasOne('Category', array(
              'local' => 'category_id',
              'foreign' => 'category_id'));
+
+        $this->hasOne('EmployeeProfiles', array(
+             'local' => 'emp_profile_id',
+             'foreign' => 'profile_id'));
 
         $this->hasMany('Complaints', array(
              'local' => 'emp_id',
