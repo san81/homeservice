@@ -691,3 +691,23 @@ input.submit {
 	font-size : 1px;
 	line-height : 0px;
 }
+
+.headerTitle{
+    background-color:#7EB610;
+    border-bottom:0px solid #A2B565;
+    color:white;
+    font-size:11px;
+    height:30px;
+    text-align:center;
+}
+
+.borderboxDuplicate{
+    clear : both;
+	float : none;
+	margin-top : 13px;
+	border : #A5A4A4 1px solid;
+}
+
+.borderboxDuplicate th {
+    text-align: right;
+}

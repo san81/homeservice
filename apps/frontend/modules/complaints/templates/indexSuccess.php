@@ -1,5 +1,6 @@
-<h1>Complaintss List</h1>
-
+<div class="headerTitle" >
+    <h1>Complaintss List</h1>
+</div>
 <table>
   <thead>
     <tr>
@@ -22,7 +23,7 @@
       <td><?php echo $complaints->getComplaintCode() ?></td>
       <td><?php echo $complaints->getCustomerId() ?></td>
       <td><?php echo $complaints->getAssignedEmpId() ?></td>
-      <td><?php echo $complaints->getItemId() ?></td>
+      <td><?php echo $complaints->getItems()->getItem_name() ?></td>
       <td><?php echo $complaints->getStatus() ?></td>
       <td><?php echo $complaints->getClosedDate() ?></td>
       <td><?php echo $complaints->getDescription() ?></td>

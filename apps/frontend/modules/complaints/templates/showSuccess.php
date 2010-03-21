@@ -1,5 +1,19 @@
-<table>
+<div class="leftcol_box">
+    <div id="catalog">
+        <h2>
+            <a href="<?php echo url_for('complaints/edit?id='.$complaints->getId()) ?>">Edit</a>
+       </h2>
+    </div>
+</div>
+
+&nbsp;
+<a href="<?php echo url_for('complaints/index') ?>">List</a>
+
+<table class="borderboxDuplicate">
   <tbody>
+  <thead  class="headerTitle">
+    <td colspan="2" align="center">Complaint Details of <?php echo $complaints->getComplaintCode() ?></td>
+  </thead>
     <tr>
       <th>Id:</th>
       <td><?php echo $complaints->getId() ?></td>
@@ -8,21 +22,21 @@
       <th>Complaint date:</th>
       <td><?php echo $complaints->getComplaintDate() ?></td>
     </tr>
-    <tr>
+    <!--<tr>
       <th>Complaint code:</th>
       <td><?php echo $complaints->getComplaintCode() ?></td>
-    </tr>
+    </tr> -->
     <tr>
       <th>Customer:</th>
-      <td><?php echo $complaints->getCustomerId() ?></td>
+      <td><?php echo $complaints->getCustomer()->getName() ?></td>
     </tr>
     <tr>
       <th>Assigned emp:</th>
-      <td><?php echo $complaints->getAssignedEmpId() ?></td>
+      <td><?php echo $complaints->getEmployee()->getName() ?></td>
     </tr>
     <tr>
       <th>Item:</th>
-      <td><?php echo $complaints->getItemId() ?></td>
+      <td><?php echo $complaints->getItems()->getItem_name() ?></td>
     </tr>
     <tr>
       <th>Status:</th>
@@ -39,8 +53,6 @@
   </tbody>
 </table>
 
-<hr />
 
-<a href="<?php echo url_for('complaints/edit?id='.$complaints->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('complaints/index') ?>">List</a>
+
+

@@ -29,6 +29,7 @@
 				<span><a href="<?php echo url_for('employee/index') ?>">Employees</a></span>
 				<span><a href="<?php echo url_for('complaints/index') ?>">Complaints</a></span>
                 <span><a href="<?php echo url_for('city/index') ?>">City</a></span>
+                <span><a href="logout.php">Logout</a></span>
 			</div>
 		</div>
 	</div>
@@ -38,15 +39,13 @@
 		<div class="borderbox">
 		<div class="leftcol_box">
 		<div id="books_search">
-			<h2><span>Employee Login</span></h2>
+			<h2><span>Welcome <?php echo $_SESSION['loggedin_user']; ?></span></h2>
 			<div class="content">
-				<form method="post" action="http://www.uss.spconsultancy.com">
 					<div>
-                        <input type="text" value="Enter UserName......" />
-                        <input type="password" name="txtPass" value="" />
-                        <input type="submit" value="submit" />
-					</div>
-				</form>				
+                       Logged in User : <?php echo $_SESSION['loggedin_user']; ?>
+                       <br/>
+                       Role : Administrator
+					</div>	
 			</div>
 		</div>
 		</div>
@@ -121,6 +120,17 @@ for free you can replace all the text by your own text.
 	</div>
 	<!-- BEGIN :: MAIN COL -->
 	<div id="page_maincol">
+        <div id="maincol_top">
+
+                <div class="sideimg">&nbsp;</div>
+                <div class="content">
+                    <h2><span>Welcome to our site</span></h2>
+                    <p>
+    This is a template designed by free website templates for you for free you can replace all the text by your own text. This is just a place holder so you can see how the site would look like. If you're having problems editing the template please don't hesitate to ask for help on the forum. You will get help
+                    </p>
+                    <div class="readmore"><a href="http://www.uss.spconsultancy.com">Read More</a></div>
+                </div>
+		</div>
 		<div id="bestsellers">
 			<?php echo $sf_content ?>
 		</div>
