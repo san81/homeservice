@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=mysql9.ixwebhosting.com;dbname=vighnes_elearn'
+      username: vighnes_elearndb
+      password: vighSP123db
