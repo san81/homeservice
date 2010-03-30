@@ -1,7 +1,9 @@
-<h1>Zoness List</h1>
+<div class="ussTableHeader" >
+	<h1>Zoness List</h1>
+</div>
 
-<table>
-  <thead>
+<table class="borderboxWithData">
+  <thead class="tbheader">
     <tr>
       <th>Zone</th>
       <th>Zone code</th>
@@ -13,14 +15,16 @@
   <tbody>
     <?php foreach ($zoness as $zones): ?>
     <tr>
-      <td><a href="<?php echo url_for('zones/show?zone_id='.$zones->getZoneId()) ?>"><?php echo $zones->getZoneId() ?></a></td>
-      <td><?php echo $zones->getZoneCode() ?></td>
-      <td><?php echo $zones->getZoneName() ?></td>
-      <td><?php echo $zones->getCityId() ?></td>
-      <td><?php echo $zones->getDescription() ?></td>
+      <td class="rowWord"><a href="<?php echo url_for('zones/show?zone_id='.$zones->getZoneId()) ?>"><?php echo $zones->getZoneId() ?></a></td>
+      <td class="rowWord"><?php echo $zones->getZoneCode() ?></td>
+      <td class="rowWord"><?php echo $zones->getZoneName() ?></td>
+      <td class="rowWord"><?php echo $zones->getCityId() ?></td>
+      <td class="rowWord"><?php echo $zones->getDescription() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('zones/new') ?>">New</a>
+<div class="ussTableHeader" >
+	<a href="<?php echo url_for('zones/new') ?>">New</a>
+</div>
