@@ -122,6 +122,7 @@ a:hover {
 	width : 562px;
 	float : left;
     font-size : 15px;
+    margin-top: 14px;
 }
 
 #page_rightcol {
@@ -531,7 +532,7 @@ a:hover {
 
 #page_header1 {
 	margin : 0px auto;
-	width : 755px;
+	width : 99%;
 	height : 21px;
 	background-color : #5C5E5F;
 	font-size : 12px;
@@ -710,4 +711,41 @@ input.submit {
 
 .borderboxDuplicate th {
     text-align: right;
+}
+
+.borderboxWithData{
+    clear : both;	
+	margin : 13px;
+	border : #A5A4A4 1px solid;
+	width : 95%;
+}
+
+#page_login {
+	width : 179px;
+	float : left;
+    margin-left: 300px;
+    margin-bottom: 15px;
+}
+
+.ussTableHeader {
+	color: #000000;
+	font-size:11px;
+	text-align:center;
+	font-weight: bold;
+	background: #87afc7;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000000;
+}
+
+.tbheader {
+	font-size: 8pt;
+	font-weight: bold;
+	background: #F8C055
+}
+
+.rowWord {
+	/*background: #ffffee;*/
+	text-align: left;
+	font-size: 8pt;
 }

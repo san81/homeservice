@@ -1,7 +1,10 @@
-<h1>Areass List</h1>
 
-<table>
-  <thead>
+<div class="ussTableHeader" >
+	<h1>Areass List</h1>
+</div>
+
+<table class="borderboxWithData">
+  <thead class="tbheader">
     <tr>
       <th>Area</th>
       <th>Area code</th>
@@ -13,14 +16,17 @@
   <tbody>
     <?php foreach ($areass as $areas): ?>
     <tr>
-      <td><a href="<?php echo url_for('areas/show?area_id='.$areas->getAreaId()) ?>"><?php echo $areas->getAreaId() ?></a></td>
-      <td><?php echo $areas->getAreaCode() ?></td>
-      <td><?php echo $areas->getAreaName() ?></td>
-      <td><?php echo $areas->getZoneId() ?></td>
-      <td><?php echo $areas->getDescription() ?></td>
+      <td class="rowWord"><a href="<?php echo url_for('areas/show?area_id='.$areas->getAreaId()) ?>"><?php echo $areas->getAreaId() ?></a></td>
+      <td class="rowWord"><?php echo $areas->getAreaCode() ?></td>
+      <td class="rowWord"><?php echo $areas->getAreaName() ?></td>
+      <td class="rowWord"><?php echo $areas->getZoneId() ?></td>
+      <td class="rowWord"><?php echo $areas->getDescription() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('areas/new') ?>">New</a>
+ 
+<div class="ussTableHeader" >
+	<h4><a href="<?php echo url_for('areas/new') ?>">New</a></h4>
+ </div>

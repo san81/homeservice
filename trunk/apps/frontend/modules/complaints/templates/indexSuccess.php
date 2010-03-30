@@ -1,8 +1,9 @@
-<div class="headerTitle" >
+
+<div class="ussTableHeader" >
     <h1>Complaintss List</h1>
 </div>
-<table>
-  <thead>
+<table class="borderboxWithData">
+  <thead class="tbheader">
     <tr>
       <th>Id</th>
       <th>Complaint date</th>
@@ -18,18 +19,20 @@
   <tbody>
     <?php foreach ($complaintss as $complaints): ?>
     <tr>
-      <td><a href="<?php echo url_for('complaints/show?id='.$complaints->getId()) ?>"><?php echo $complaints->getId() ?></a></td>
-      <td><?php echo $complaints->getComplaintDate() ?></td>
-      <td><?php echo $complaints->getComplaintCode() ?></td>
-      <td><?php echo $complaints->getCustomerId() ?></td>
-      <td><?php echo $complaints->getAssignedEmpId() ?></td>
-      <td><?php echo $complaints->getItems()->getItem_name() ?></td>
-      <td><?php echo $complaints->getStatus() ?></td>
-      <td><?php echo $complaints->getClosedDate() ?></td>
-      <td><?php echo $complaints->getDescription() ?></td>
+      <td class="rowWord"><a href="<?php echo url_for('complaints/show?id='.$complaints->getId()) ?>"><?php echo $complaints->getId() ?></a></td>
+      <td class="rowWord"><?php echo $complaints->getComplaintDate() ?></td>
+      <td class="rowWord"><?php echo $complaints->getComplaintCode() ?></td>
+      <td class="rowWord"><?php echo $complaints->getCustomerId() ?></td>
+      <td class="rowWord"><?php echo $complaints->getAssignedEmpId() ?></td>
+      <td class="rowWord"><?php echo $complaints->getItems()->getItem_name() ?></td>
+      <td class="rowWord"><?php echo $complaints->getStatus() ?></td>
+      <td class="rowWord"><?php echo $complaints->getClosedDate() ?></td>
+      <td class="rowWord"><?php echo $complaints->getDescription() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('complaints/new') ?>">New</a>
+<div class="ussTableHeader" >
+    <h4><a href="<?php echo url_for('complaints/new') ?>">New</a></h4>
+</div>

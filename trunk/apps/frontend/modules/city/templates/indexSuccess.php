@@ -1,7 +1,11 @@
-<h1>Citys List</h1>
+ 
+<div class="ussTableHeader" >
+	<h1>Citys List</h1>
+</div>
 
-<table>
-  <thead>
+
+<table class="borderboxWithData">
+  <thead class="tbheader">
     <tr>
       <th>City</th>
       <th>City name</th>
@@ -19,4 +23,7 @@
   </tbody>
 </table>
 
+ 
+<div class="ussTableHeader" >  
   <a href="<?php echo url_for('city/new') ?>">New</a>
+</div>

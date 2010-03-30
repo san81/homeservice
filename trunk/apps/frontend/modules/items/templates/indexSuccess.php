@@ -1,7 +1,9 @@
-<h1>Itemss List</h1>
+<div class="ussTableHeader" >
+	<h1>Itemss List</h1>
+</div>
 
-<table>
-  <thead>
+<table class="borderboxWithData">
+  <thead class="tbheader">
     <tr>
       <th>Item</th>
       <th>Item name</th>
@@ -13,14 +15,16 @@
   <tbody>
     <?php foreach ($itemss as $items): ?>
     <tr>
-      <td><a href="<?php echo url_for('items/show?item_id='.$items->getItemId()) ?>"><?php echo $items->getItemId() ?></a></td>
-      <td><?php echo $items->getItemName() ?></td>
-      <td><?php echo $items->getItemPrice() ?></td>
-      <td><?php echo $items->getCategoryId() ?></td>
-      <td><?php echo $items->getItemDescription() ?></td>
+      <td class="rowWord"><a href="<?php echo url_for('items/show?item_id='.$items->getItemId()) ?>"><?php echo $items->getItemId() ?></a></td>
+      <td class="rowWord"><?php echo $items->getItemName() ?></td>
+      <td class="rowWord"><?php echo $items->getItemPrice() ?></td>
+      <td class="rowWord"><?php echo $items->getCategoryId() ?></td>
+      <td class="rowWord"><?php echo $items->getItemDescription() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('items/new') ?>">New</a>
+ <div class="ussTableHeader" >
+ <a href="<?php echo url_for('items/new') ?>">New</a>
+</div>
