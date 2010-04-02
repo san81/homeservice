@@ -27,8 +27,8 @@
       <td class="rowWord"><?php echo $customer->getName() ?></td>
       <td class="rowWord"><?php echo $customer->getSurName() ?></td>
       <td class="rowWord"><?php echo $customer->getMobile() ?></td>
-      <td class="rowWord"><?php echo $customer->getZoneId() ?></td>
-      <td class="rowWord"><?php echo $customer->getAreaId() ?></td>
+      <td class="rowWord"><?php echo $customer->getZones()->getZoneName() ?></td>
+      <td class="rowWord"><?php echo $customer->getAreas()->getAreaName() ?></td>
       <td class="rowWord"><?php echo $customer->getRegExpiry() ?></td>
       <td class="rowWord"><?php echo $customer->getAddress() ?></td>
     </tr>

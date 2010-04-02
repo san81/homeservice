@@ -18,7 +18,7 @@
       <td class="rowWord"><a href="<?php echo url_for('zones/show?zone_id='.$zones->getZoneId()) ?>"><?php echo $zones->getZoneId() ?></a></td>
       <td class="rowWord"><?php echo $zones->getZoneCode() ?></td>
       <td class="rowWord"><?php echo $zones->getZoneName() ?></td>
-      <td class="rowWord"><?php echo $zones->getCityId() ?></td>
+      <td class="rowWord"><?php echo $zones->getCity()->getCityName() ?></td>
       <td class="rowWord"><?php echo $zones->getDescription() ?></td>
     </tr>
     <?php endforeach; ?>

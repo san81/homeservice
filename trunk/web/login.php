@@ -30,33 +30,17 @@ if(isset($_REQUEST['username']))
 <div id="page_header">
 	<div id="page_title">
 	<h1>Ultimate Service Solutions</h1>
-	</div>
-	<div id="header_search">
-		<form method="post" action="http://www.uss.spconsultancy.com">
-		<div>
-		<h3><span>Find:</span></h3>
-		<input type="text" />
-		<input type="image" src="img/search_button.gif" class="submit" />
-		</div>
-		</form>
-	</div>
+	</div>	
 </div>
 <div id="page_spacing">
 <div id="page_header1">
 	<div id="links">
-<span><a href="http://www.uss.spconsultancy.com">Home</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Bestsellers</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Magazines</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Bargain</a></span>
-<span><a href="http://www.uss.spconsultancy.com">New Releases</a></span>
-<span><a href="http://www.uss.spconsultancy.com">E-Books</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Contact</a></span>
 	</div>
 </div>
 </div>
  <div id="page_wrapper">
 	<!-- BEGIN :: LEFT SIDEBAR -->
-	<div id="page_leftcol">
+	<div id="page_login">
 		<div class="borderbox">
 		<div class="leftcol_box">
 		<div id="books_search">
@@ -86,13 +70,7 @@ if(isset($_REQUEST['username']))
 &copy; Copyright for USS
 	</div>
 	<div id="links">
-<span><a href="http://www.uss.spconsultancy.com">Home</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Bestsellers</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Magazines</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Bargain</a></span>
-<span><a href="http://www.uss.spconsultancy.com">New Releases</a></span>
-<span><a href="http://www.uss.spconsultancy.com">E-Books</a></span>
-<span><a href="http://www.uss.spconsultancy.com">Contact</a></span>
+
 	</div>
 </div>
 </div>
