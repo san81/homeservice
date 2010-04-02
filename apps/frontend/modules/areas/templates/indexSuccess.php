@@ -19,7 +19,7 @@
       <td class="rowWord"><a href="<?php echo url_for('areas/show?area_id='.$areas->getAreaId()) ?>"><?php echo $areas->getAreaId() ?></a></td>
       <td class="rowWord"><?php echo $areas->getAreaCode() ?></td>
       <td class="rowWord"><?php echo $areas->getAreaName() ?></td>
-      <td class="rowWord"><?php echo $areas->getZoneId() ?></td>
+      <td class="rowWord"><?php echo $areas->getZones()->getZoneName() ?></td>
       <td class="rowWord"><?php echo $areas->getDescription() ?></td>
     </tr>
     <?php endforeach; ?>
